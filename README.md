@@ -1,6 +1,3 @@
-Here’s a sample `README.md` file that explains the setup for a React app located in a `portfolio` directory:
-
-```markdown
 # React Portfolio App Setup
 
 Welcome to the React Portfolio App! This guide will help you set up and run the app on your local machine.
@@ -23,12 +20,14 @@ If you haven’t cloned the repository yet, run the following command in your te
 git clone https://github.com/SuhasPalani/React_Portfolio.git
 ```
 
-### 2. Navigate to the Portfolio Directory
+This will create a local copy of the repository on your machine.
 
-Once the repository is cloned, navigate to the `portfolio` directory where the React app code is stored:
+### 2. Navigate to the Project Directory
+
+Once the repository is cloned, navigate to the directory where the React app code is stored. Since the React app is assumed to be at the root of the repository, you can skip a separate `cd portfolio` step.
 
 ```bash
-cd portfolio
+cd React_Portfolio
 ```
 
 ### 3. Install Dependencies
@@ -74,3 +73,13 @@ This will create an optimized version of the app in the `build/` directory that 
   ```bash
   PORT=3001 npm start
   ```
+
+## Contributing
+
+If you'd like to contribute to this project, feel free to fork the repository, create a new branch, make your changes, and submit a pull request.
+
+
+---
+
+### Thank you for checking out the React Portfolio App!
+
