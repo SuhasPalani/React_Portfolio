@@ -22,11 +22,15 @@ const fadeIn = keyframes`
 
 const ResumeContainer = styled.section`
   min-height: 100vh;
-  padding: 4rem 2rem;
+  padding: 1rem;
   background: linear-gradient(-45deg, #2c3e50, #3498db, #2980b9, #34495e);
   background-size: 400% 400%;
   animation: ${gradientAnimation} 15s ease infinite;
   color: #fff;
+
+  @media (min-width: 768px) {
+    padding: 4rem 2rem;
+  }
 `;
 
 const ContentWrapper = styled.div`
@@ -46,74 +50,62 @@ const Section = styled.div`
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   color: #fff;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 
-  svg {
-    color: #e0ffff;
+  @media (min-width: 768px) {
+    font-size: 2.2rem;
+    gap: 1rem;
+    margin-bottom: 2rem;
   }
 `;
 
 const ExperienceItem = styled.div`
   background: rgba(255, 255, 255, 0.08);
-  padding: 2rem;
-  border-radius: 15px;
-  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
   transition: all 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.1);
 
-  &:hover {
-    transform: translateX(10px);
-    background: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  @media (min-width: 768px) {
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 1.5rem;
   }
 
   h3 {
     color: #e0ffff;
-    margin-bottom: 0.8rem;
-    font-size: 1.4rem;
-    text-align: justify;
+    margin-bottom: 0.6rem;
+    font-size: 1.2rem;
+    
+    @media (min-width: 768px) {
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
   }
 
   .company {
-    color: #fff;
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
-    text-align: justify;
-  }
-
-  .date {
-    color: #e0ffff;
-    font-size: 0.9rem;
-    opacity: 0.8;
-    text-align: justify;
-  }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: justify;
+    font-size: 1rem;
+    
+    @media (min-width: 768px) {
+      font-size: 1.1rem;
+    }
   }
 
   li {
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
-    position: relative;
-    line-height: 1.6;
-
-    &:before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #e0ffff;
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    
+    @media (min-width: 768px) {
+      font-size: 1rem;
+      margin-bottom: 0.8rem;
     }
-    text-align: justify;
   }
 `;
 
@@ -129,22 +121,40 @@ const ProjectLink = styled.a`
 `;
 
 const FilterContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const FilterButton = styled.button`
-  background: ${(props) =>
-    props.active ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0.1)"};
+  background: ${(props) => props.active ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0.1)"};
   color: #fff;
   border: none;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  border-radius: 20px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+
+  @media (min-width: 768px) {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    gap: 0.5rem;
+  }
+
   &:hover {
     background: rgba(255, 255, 255, 0.3);
   }
