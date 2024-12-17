@@ -1,18 +1,12 @@
 import React, { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import {
-  FaBriefcase,
-  FaGraduationCap,
-  FaTools,
-  FaTrophy,
   FaLaptopCode,
-  FaDownload,
   FaGithub,
   FaCloud,
   FaBrain,
   FaCode,
   FaEllipsisH,
-  FaFileAlt,
 } from "react-icons/fa";
 
 const gradientAnimation = keyframes`
@@ -120,55 +114,6 @@ const ExperienceItem = styled.div`
       color: #e0ffff;
     }
     text-align: justify;
-  }
-`;
-
-const SkillsContainer = styled.div`
-  background: rgba(255, 255, 255, 0.08);
-  padding: 2rem;
-  border-radius: 15px;
-
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
-    position: relative;
-    line-height: 1.6;
-
-    &:before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #e0ffff;
-    }
-  }
-`;
-
-const DownloadButton = styled.a`
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  text-decoration: none;
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  z-index: 100;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   }
 `;
 
