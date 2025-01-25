@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import { 
   FaGithub, FaLinkedin, FaTwitter, 
-  FaEnvelope, FaCode, FaLaptopCode 
+  FaEnvelope, FaCode
 } from "react-icons/fa";
 
 const gradientAnimation = keyframes`

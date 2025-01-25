@@ -201,7 +201,8 @@ const Contact = () => {
 
   useEffect(() => {
     emailjs.init(emailJsConfig.userId);
-  }, []);
+  }, [emailJsConfig.userId]);
+  
 
   const validate = useCallback(() => {
     const newErrors = {};
