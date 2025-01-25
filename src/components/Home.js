@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import { Link } from "react-router-dom";
-import styled, { keyframes} from "styled-components";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import styled, { keyframes } from "styled-components";
+import { 
+  FaGithub, FaLinkedin, FaTwitter, 
+  FaEnvelope, FaCode, FaLaptopCode 
+} from "react-icons/fa";
 
 const gradientAnimation = keyframes`
   0% { background-position: 0% 50%; }
@@ -11,7 +14,8 @@ const gradientAnimation = keyframes`
 
 const floatAnimation = keyframes`
   0% { transform: translateY(0); }
-  100% { transform: translateY(-20px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
 `;
 
 const HomeContainer = styled.section`
@@ -27,187 +31,111 @@ const HomeContainer = styled.section`
   color: #FFFFFF;
   overflow: hidden;
   position: relative;
-
-  @media (min-width: 768px) {
-    padding: 2rem;
-  }
 `;
 
 const ContentWrapper = styled.div`
-  max-width: 100%;
-  width: 100%;
+  max-width: 800px;
+  width: 90%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   z-index: 10;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
-  border-radius: 20px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  border-radius: 25px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 
-  @media (min-width: 768px) {
-    max-width: 800px;
-    padding: 3rem;
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
   }
 `;
 
 const Title = styled.h1`
   font-family: "Montserrat", sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  margin-bottom: 1rem;
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
   background: linear-gradient(45deg, #FF4500, #FFD700);
   -webkit-background-clip: text;
   color: transparent;
-  position: relative;
-  z-index: 2;
-
-  @media (min-width: 768px) {
-    font-size: 4.5rem;
-    margin-bottom: 1rem;
-  }
 `;
 
 const Subtitle = styled.h2`
   font-family: "Roboto Mono", monospace;
-  font-size: 1.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   margin-bottom: 1rem;
   color: #FFFFFF;
-  position: relative;
-  z-index: 2;
-
-  @media (min-width: 768px) {
-    font-size: 2.2rem;
-    margin-bottom: 1.5rem;
-  }
+  min-height: 2.5rem;
 `;
 
 const Paragraph = styled.p`
   font-family: "Open Sans", sans-serif;
-  font-size: 1rem;
-  max-width: 100%;
-  margin: 0 auto 1.5rem;
-  line-height: 1.5;
-  text-align: center;
-  color: #FFFFFF;
-  position: relative;
-  z-index: 2;
-
-  @media (min-width: 768px) {
-    font-size: 1.4rem;
-    max-width: 650px;
-    margin-bottom: 2.5rem;
-    line-height: 1.7;
-  }
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  max-width: 650px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+  color: #f0f0f0;
 `;
 
 const ButtonContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
-  margin: 1.5rem 0;
-  width: 90%;
-  max-width: 400px;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    justify-content: center;
-    width: auto;
-    max-width: none;
-  }
+  margin-bottom: 2rem;
 `;
 
 const Button = styled(Link)`
   display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 0.5rem;
   background-color: transparent;
   color: #FFD700;
-  padding: 1rem;
-  font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
   border: 2px solid #FFD700;
   border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.4s ease;
   text-decoration: none;
-  min-height: 3rem;
-  width: 100%;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, #FFD700, transparent);
-    transition: all 0.4s ease;
-  }
-
+  transition: all 0.4s ease;
+  
   &:hover {
+    background-color: #FFD700;
     color: #0000FF;
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
-
-    &::before {
-      left: 100%;
-    }
-  }
-
-  @media (min-width: 768px) {
-    width: auto;
-    min-width: 180px;
-    padding: 1rem 2.5rem;
-  }
-
-  /* Touch device optimization */
-  @media (hover: none) {
-    &:active {
-      transform: scale(0.98);
-    }
   }
 `;
 
-
 const SocialIcons = styled.div`
   display: flex;
-  gap: 1.5rem;
-  font-size: 1.5rem;
   justify-content: center;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-
-  @media (min-width: 768px) {
-    gap: 2rem;
-    font-size: 2rem;
-  }
+  gap: 2rem;
+  margin-top: 1rem;
 
   a {
     color: #bdc3c7;
+    font-size: 1.8rem;
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
     &:hover {
-      transform: translateY(-5px) scale(1.2);
       color: #3498db;
+      transform: scale(1.2) translateY(-5px);
     }
   }
 `;
 
 const FloatingShape = styled.div`
   position: absolute;
-  background-color: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
-  pointer-events: none;
+  filter: blur(2px);
   z-index: 1;
-  animation: ${floatAnimation} ease-in-out infinite alternate;
+  animation: ${floatAnimation} infinite;
 `;
 
 const Home = () => {
@@ -215,7 +143,12 @@ const Home = () => {
   const [shapes, setShapes] = useState([]);
 
   const professions = useMemo(
-    () => ["Software Developer", "DevOps Engineer", "Full Stack Developer"],
+    () => [
+      "Software Developer", 
+      "DevOps Engineer", 
+      "Full Stack Developer",
+      "Cloud Enthusiast"
+    ],
     []
   );
 
@@ -223,35 +156,26 @@ const Home = () => {
     let currentProfessionIndex = 0;
     let currentCharIndex = 0;
     let isDeleting = false;
-    const typingSpeed = 150;
-    const erasingSpeed = 50;
-    const delayBetweenProfessions = 2000;
 
     const animate = () => {
       const currentProfession = professions[currentProfessionIndex];
+      
+      setAnimatedText(
+        isDeleting 
+          ? currentProfession.substring(0, currentCharIndex)
+          : currentProfession.substring(0, currentCharIndex)
+      );
 
-      if (isDeleting) {
-        setAnimatedText(currentProfession.substring(0, currentCharIndex));
-        currentCharIndex--;
-
-        if (currentCharIndex < 0) {
-          isDeleting = false;
-          currentProfessionIndex =
-            (currentProfessionIndex + 1) % professions.length;
-          setTimeout(animate, delayBetweenProfessions);
-        } else {
-          setTimeout(animate, erasingSpeed);
-        }
-      } else {
-        setAnimatedText(currentProfession.substring(0, currentCharIndex));
+      if (!isDeleting && currentCharIndex < currentProfession.length) {
         currentCharIndex++;
-
-        if (currentCharIndex > currentProfession.length) {
-          isDeleting = true;
-          setTimeout(animate, delayBetweenProfessions);
-        } else {
-          setTimeout(animate, typingSpeed);
-        }
+        setTimeout(animate, 150);
+      } else if (isDeleting && currentCharIndex > 0) {
+        currentCharIndex--;
+        setTimeout(animate, 50);
+      } else {
+        isDeleting = !isDeleting;
+        currentProfessionIndex = (currentProfessionIndex + 1) % professions.length;
+        setTimeout(animate, isDeleting ? 2000 : 500);
       }
     };
 
@@ -259,19 +183,19 @@ const Home = () => {
   }, [professions]);
 
   useEffect(() => {
-    const animationTimeout = setTimeout(typeProfession, 2000);
-    return () => clearTimeout(animationTimeout);
+    const typingTimeout = setTimeout(typeProfession, 1000);
+    return () => clearTimeout(typingTimeout);
   }, [typeProfession]);
 
   useEffect(() => {
     const createShape = () => ({
-      size: Math.random() * 150 + 50,
+      size: Math.random() * 100 + 50,
       left: Math.random() * window.innerWidth,
       top: Math.random() * window.innerHeight,
-      animationDuration: Math.random() * 20 + 10,
+      animationDuration: Math.random() * 15 + 10,
     });
 
-    setShapes(Array.from({ length: 8 }, createShape));
+    setShapes(Array.from({ length: 6 }, createShape));
   }, []);
 
   return (
@@ -290,38 +214,35 @@ const Home = () => {
       ))}
       <ContentWrapper>
         <Title>Hello, I'm Suhas Palani</Title>
-        <Subtitle>I'm an aspiring {animatedText}</Subtitle>
+        <Subtitle>I'm an aspiring {animatedText}|</Subtitle>
         <Paragraph>
-          Crafting digital symphonies through code, I transform innovative ideas 
-          into elegant software solutions that push the boundaries of technology 
-          and user experience.
+          Transforming innovative ideas into elegant software solutions, 
+          I craft digital experiences that blend cutting-edge technology 
+          with intuitive design and performance.
         </Paragraph>
         <ButtonContainer>
-          <Button to="/contact">Hire Me</Button>
-          <Button to="/projects">View Projects</Button>
+          <Button to="/contact">
+            <FaEnvelope /> Hire Me
+          </Button>
+          <Button to="/projects">
+            <FaCode /> View Projects
+          </Button>
         </ButtonContainer>
         <SocialIcons>
-          <a
-            href="https://github.com/SuhasPalani"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/suhaspalani/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaLinkedin />
-          </a>
-          <a
-            href="https://x.com/SuhasPalani"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaTwitter />
-          </a>
+          {[
+            { Icon: FaGithub, url: "https://github.com/SuhasPalani" },
+            { Icon: FaLinkedin, url: "https://www.linkedin.com/in/suhaspalani/" },
+            { Icon: FaTwitter, url: "https://x.com/SuhasPalani" }
+          ].map(({ Icon, url }, index) => (
+            <a
+              key={index}
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon />
+            </a>
+          ))}
         </SocialIcons>
       </ContentWrapper>
     </HomeContainer>
