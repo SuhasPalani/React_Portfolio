@@ -165,6 +165,19 @@ const Resume = () => {
 
   const projects = [
     {
+      "name": "Weather Dashboard",
+      "categories": ["Software Engineering", "Cloud"],
+      "github": "https://github.com/SuhasPalani/weather-dashboard", 
+      "date": "Dec 2024 - Jan 2025",
+      "description": [
+        "Developed a full-stack Weather Dashboard to display real-time weather data using React and Chart.js for interactive visualizations",
+        "Integrated Flask backend to fetch weather data using WeatherAPI, and used MongoDB to store and retrieve weather information",
+        "Built a real-time chatbot assistant using OpenAI API to provide users with weather-related insights and answers",
+        "Implemented search and suggestion features to allow users to query weather data by city, state, or zip code",
+        "Focused on user experience by providing a responsive and intuitive UI with real-time data updates"
+      ]
+    },
+    {
       name: "Bitcoin Prediction",
       categories: ["ML", "Software Engineering"],
       github: "https://github.com/SuhasPalani/ML_Bitcoin_Prediction",
