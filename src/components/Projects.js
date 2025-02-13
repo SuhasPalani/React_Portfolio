@@ -83,7 +83,7 @@ const ExperienceItem = styled.div`
     color: #e0ffff;
     margin-bottom: 0.6rem;
     font-size: 1.2rem;
-    
+
     @media (min-width: 768px) {
       font-size: 1.4rem;
       margin-bottom: 0.8rem;
@@ -92,7 +92,7 @@ const ExperienceItem = styled.div`
 
   .company {
     font-size: 1rem;
-    
+
     @media (min-width: 768px) {
       font-size: 1.1rem;
     }
@@ -101,7 +101,7 @@ const ExperienceItem = styled.div`
   li {
     font-size: 0.9rem;
     margin-bottom: 0.6rem;
-    
+
     @media (min-width: 768px) {
       font-size: 1rem;
       margin-bottom: 0.8rem;
@@ -136,7 +136,8 @@ const FilterContainer = styled.div`
 `;
 
 const FilterButton = styled.button`
-  background: ${(props) => props.active ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0.1)"};
+  background: ${(props) =>
+    props.active ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0.1)"};
   color: #fff;
   border: none;
   padding: 0.4rem 0.8rem;
@@ -165,17 +166,30 @@ const Resume = () => {
 
   const projects = [
     {
-      "name": "Weather Dashboard",
-      "categories": ["Software Engineering", "Cloud"],
-      "github": "https://github.com/SuhasPalani/weather-dashboard", 
-      "date": "Dec 2024 - Jan 2025",
-      "description": [
+      name: "Voice-Activated Task Scheduler",
+      categories: ["AI"],
+      github: "https://github.com/YourUsername/voice-activated-task-scheduler",
+      date: "Jan 2025",
+      description: [
+        "Developed a voice-activated task scheduler using Twilio and OpenAI's APIs for seamless speech-to-text and text-to-speech capabilities, improving user interaction by 20%",
+        "Integrated OpenAI's Whisper for speech-to-text and TTS for converting text back to speech, enhancing system usability and accuracy by 25%",
+        "Automated task management, enabling users to schedule tasks via voice, reducing manual input time by 15%",
+        "Implemented WhatsApp reminders using Twilio API, notifying users of upcoming deadlines, leading to a 15% increase in task completion rates",
+        "Leveraged the 'schedule' library to trigger automated reminders based on set deadlines, streamlining task tracking and improving overall efficiency by 10%",
+      ],
+    },
+    {
+      name: "Weather Dashboard",
+      categories: ["Software Engineering", "Cloud", "AI"],
+      github: "https://github.com/SuhasPalani/weather-dashboard",
+      date: "Dec 2024 - Jan 2025",
+      description: [
         "Developed a full-stack Weather Dashboard to display real-time weather data using React and Chart.js for interactive visualizations",
         "Integrated Flask backend to fetch weather data using WeatherAPI, and used MongoDB to store and retrieve weather information",
         "Built a real-time chatbot assistant using OpenAI API to provide users with weather-related insights and answers",
         "Implemented search and suggestion features to allow users to query weather data by city, state, or zip code",
-        "Focused on user experience by providing a responsive and intuitive UI with real-time data updates"
-      ]
+        "Focused on user experience by providing a responsive and intuitive UI with real-time data updates",
+      ],
     },
     {
       name: "Bitcoin Prediction",

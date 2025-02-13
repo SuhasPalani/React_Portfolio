@@ -531,7 +531,7 @@ const Resume = () => {
       </ContentWrapper>
 
       <DownloadButton
-        href="https://drive.google.com/file/d/10ekYLIlYfP4_fVEQzEKsdJjzS8lWsfH-/view?usp=sharing"
+        href="https://drive.google.com/file/d/1Bi9OfF6YrQepgcrMyLhWx-c6SObh9XdZ/view?usp=sharing"
         target="_blank"
         rel="noopener noreferrer"
       >
