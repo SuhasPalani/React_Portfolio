@@ -168,7 +168,7 @@ const Resume = () => {
     {
       name: "Voice-Activated Task Scheduler",
       categories: ["AI"],
-      github: "https://github.com/YourUsername/voice-activated-task-scheduler",
+      github: "https://github.com/SuhasPalani/task_scheduler",
       date: "Jan 2025",
       description: [
         "Developed a voice-activated task scheduler using Twilio and OpenAI's APIs for seamless speech-to-text and text-to-speech capabilities, improving user interaction by 20%",
