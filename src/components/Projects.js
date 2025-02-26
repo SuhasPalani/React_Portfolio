@@ -166,6 +166,18 @@ const Resume = () => {
 
   const projects = [
     {
+      name: "Voice-Based Code Generator",
+      categories: ["AI", "Software Engineering"],
+      github: "https://github.com/SuhasPalani/voice_based_code_generator",
+      date: "Feb 2025",
+      description: [
+        "Developed a voice-based code generation application using React for the frontend and Flask for the backend, enabling users to generate code through voice commands and improving development speed by 30%.",
+        "Integrated OpenAI and Google LLM APIs for speech-to-text and code generation, reducing code generation time by 15% and increasing code complexity by 12% without compromising performance.",
+        "Implemented audio processing pipelines using Pydub and ffmpeg for seamless conversion and resampling of audio files, improving transcription accuracy by 25% and reducing processing delays by 12%.",
+        "Created an intuitive React-based interface using the Web Audio API for capturing and processing voice commands, delivering generated code explanations in under 2 seconds.",
+      ],
+    },
+    {
       name: "Voice-Activated Task Scheduler",
       categories: ["AI"],
       github: "https://github.com/SuhasPalani/task_scheduler",
