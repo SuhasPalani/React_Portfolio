@@ -166,6 +166,18 @@ const Resume = () => {
 
   const projects = [
     {
+      name: "AI-Powered Report Generator",
+      categories: ["AI", "Software Engineering"],
+      github: "https://github.com/SuhasPalani/AI_Report_Generator",
+      date: "Feb 2025",
+      description: [
+        "Developed an AI-powered report generator using OpenAI's GPT-4 and Mistral AI to create customized reports based on user input, improving report generation efficiency by 20%.",
+        "Integrated image upload with AI-generated captions and automatic table of contents generation, enhancing report personalization and organization by 15%.",
+        "Implemented architecture diagram generation from Python code blocks, automatically visualizing code structure and module relationships, streamlining technical documentation by 25%.",
+        "Built a user-friendly Streamlit interface for seamless report customization, styling options, and easy download, improving user accessibility and interaction by 30%.",
+      ],
+    },
+    {
       name: "Voice-Based Code Generator",
       categories: ["AI", "Software Engineering"],
       github: "https://github.com/SuhasPalani/voice_based_code_generator",
