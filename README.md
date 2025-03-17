@@ -1,6 +1,7 @@
-# React Portfolio App Setup
+# React Portfolio App Setup - Welcome to the React Portfolio App! 
 
-Welcome to the React Portfolio App! This guide will help you set up and run the app on your local machine.
+
+This guide will help you set up and run the app on your local machine.
 
 ## Prerequisites
 
